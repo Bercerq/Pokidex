@@ -1,0 +1,63 @@
+.Card {
+  margin: 4%;
+  background-color: rgba(29, 28, 36, 0.877);
+  cursor: pointer;
+}
+
+.Card:hover {
+  background-color: rgb(29, 28, 36);
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+.imgData {
+  width: 250px;
+}
+
+.name {
+  text-align: center;
+}
+
+.nameData {
+  color: white;
+  font-size: 20px;
+}
+
+.CardBody {
+  background-color: rgba(0, 0, 0, 0.774);
+  width: 80%;
+  height: 70%;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  display: flex;
+}
+
+.BoxImgOpenCard {
+  width: 85%;
+}
+
+.imgOpenCard {
+  width: 100%;
+}
+
+.nameDataOpen {
+  color: white;
+  font-size: 35px;
+}
+
+.BoxNameCard {
+  width: 100%;
+  margin-top: 10%;
+  display: block;
+}
+
+.exitButoon {
+  text-decoration: none;
+}
+
+.exitButoonText {
+  color: white;
+  text-decoration: none;
+
+}

@@ -1,0 +1,134 @@
+.navbar {
+  margin-top: 0px;
+}
+
+.navbar_nav {
+  margin-top: 3%;
+  margin-left: 11%;
+}
+
+.nav_item {
+  width: 100%;
+  list-style: none;
+
+}
+
+.icon_button {
+  background-color: rgba(29, 28, 36, 0.877);
+  padding: 7.7px;
+  display: flex;
+  font-size: 35px;
+  text-decoration: none;
+  color: rgb(112, 112, 112);
+}
+
+
+
+.CheckboxTypes {
+  display: block;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.Checkbox {
+  list-style: none;
+  background-color: rgb(29, 28, 36);
+  position: absolute;
+  z-index: 1;
+  width: 70%;
+  border: 2px solid black;
+}
+
+.Types {
+  display: flex;
+}
+
+.buttonItems {
+  font-size: 25px;
+  background: none;
+  border: none;
+  color: rgb(112, 112, 112);
+  outline: none;
+  cursor: pointer;
+}
+.buttonItems:focus {
+  border-bottom: 1px solid rgba(218, 13, 13, 0.849);
+}
+
+.filter_button {
+  background-color: rgba(29, 28, 36, 0.877);
+  outline: none;
+  color: rgb(112, 112, 112);
+  font-size: 35px;
+  border: none;
+  cursor: pointer;
+}
+
+.PokemonsStats {
+  display: flex;
+  text-align: end;
+}
+
+.StatsInput {
+  margin: 3%;
+  width: 40%;
+  padding: 4%;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid black;
+  font-size: 20px;
+  outline: none;
+  color: white;
+}
+
+.RangeStats {
+  display: block;
+}
+
+.CheckboxOptions {
+  display: block;
+}
+
+.FilterOptions {
+  display: flex;
+}
+
+.FilterStats {
+  display: block;
+}
+
+.custom_checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.custom_checkbox + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+.custom_checkbox + label::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.custom_checkbox:checked + label::before {
+  border-color: yellow;
+  background-color: yellow;
+  background-image: url('/src/distm/img/iconfinder_Ok_984756.png');
+}
+
+.attackStats {
+  display: flex;
+  padding: 2%;
+}

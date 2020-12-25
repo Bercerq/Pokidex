@@ -1,0 +1,20 @@
+.Header {
+  background-color: rgb(29, 28, 36);
+  margin: 0;
+  padding: 0;
+}
+
+.Logo > img {
+  width: 100px;
+  margin: 0.5%;
+}
+
+.buttonFillterSearch{
+  color:rgba(218, 13, 13, 0.849);
+  font-size: 20px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+

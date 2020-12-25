@@ -1,0 +1,53 @@
+.pagination {
+  display: flex;
+  width: 33%;
+  padding: 0.5%;
+  border-radius: 10px;
+  background-color: rgb(61, 61, 61);
+  opacity: 7;
+
+}
+
+a {
+  font-size: 25px;
+}
+
+.activeClassName {
+  color: white;
+}
+.pageLinkClassName {
+  color: yellow;
+  border-radius: 10px;
+  margin-right: 5%;
+  cursor: pointer;
+}
+
+.previousClassName {
+  color: white;
+  outline: none;
+  list-style-type: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 2%;
+}
+
+.nextClassName {
+    list-style-type: none;
+    color: white;
+    cursor: pointer;
+    width: 20%;
+  }
+  
+
+.breakLinkClassName {
+  list-style-type: none;
+  color: white;
+  cursor: pointer;
+}
+
+
+.break-me {
+  list-style-type: none;
+  color: white;
+  cursor: pointer;
+  padding-right: 3%;}
