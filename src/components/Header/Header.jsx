@@ -64,7 +64,7 @@ let Header = ({ type, setValType, setNamefil, handleSubmit,filterObj,setFilterOb
         Search
       </button>
       <TypeNav>
-        <TypeNavItem icon="Types Filter" className={TypeNav_css.Types}>
+        <TypeNavItem icon="Types Filters" className={TypeNav_css.Types}>
           <ul className={TypeNav_css.Checkbox}>
             <div className={TypeNav_css.FilterOptions}>
               <div className={TypeNav_css.CheckboxOptions}>
