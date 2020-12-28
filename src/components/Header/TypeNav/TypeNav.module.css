@@ -10,19 +10,17 @@
 .nav_item {
   width: 100%;
   list-style: none;
-
 }
 
 .icon_button {
+  cursor: pointer;
+
   background-color: rgba(29, 28, 36, 0.877);
   padding: 7.7px;
   display: flex;
   font-size: 35px;
-  text-decoration: none;
   color: rgb(112, 112, 112);
 }
-
-
 
 .CheckboxTypes {
   display: block;
@@ -36,6 +34,7 @@
   position: absolute;
   z-index: 1;
   width: 70%;
+  margin-top: -2%;
   border: 2px solid black;
 }
 
@@ -129,6 +128,38 @@
 }
 
 .attackStats {
+  display: block;
+}
+.statsName {
+  color: white;
+  margin-right: 5%;
+}
+.allStatsInput {
+  margin: 8%;
+  text-align: end;
   display: flex;
-  padding: 2%;
+  align-items: center;
+}
+
+.StatsFrom {
+  margin-right: 5%;
+  padding: 1%;
+  background: none;
+  outline: none;
+  border: 2px solid black;
+  color: white;
+  width: 60%;
+}
+.StatsTo {
+  padding: 1%;
+  background: none;
+  outline: none;
+  border: 2px solid black;
+  color: white;
+  width: 60%;
+}
+.statsFromTo {
+  color: white;
+  font-size: 25px;
+  margin-right: 5%;
 }

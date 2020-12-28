@@ -87,7 +87,7 @@
 .input_search {
   position: absolute;
   left: 13.2%;
-  width: 40%;
+  width: 75%;
   font-size: 35px;
   background-color: rgba(29, 28, 36, 0.877);
   padding: 0.6%;
@@ -200,4 +200,5 @@
 
 .linkToCard {
   text-decoration: none;
+  margin-bottom: -1.07%;
 }

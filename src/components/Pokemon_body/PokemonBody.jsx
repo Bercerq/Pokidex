@@ -49,6 +49,7 @@ function PokemonBody({ loading, pokemons }) {
             path={`/card/${currentPost.id}`}
             component={() => (
               <OpenedCardPokemon
+                speed={currentPost.speed}
                 pokemonId={currentPost.id}
                 pokemonName={currentPost.name}
                 attack={currentPost.attack}

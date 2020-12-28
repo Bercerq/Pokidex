@@ -11,6 +11,7 @@ function OpenedCardPokemon(props) {
     hp,
     specialAttack,
     specialDefense,
+    speed,
   } = props;
 
   const imgUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonId}.png?raw=true`;
@@ -30,6 +31,9 @@ function OpenedCardPokemon(props) {
         <div className={Card_pokemon_css.nameDataOpen}>attack: {attack}</div>
         <div className={Card_pokemon_css.nameDataOpen}>defense: {defense}</div>
         <div className={Card_pokemon_css.nameDataOpen}>hp: {hp}</div>
+        <div className={Card_pokemon_css.nameDataOpen}>speed: {speed}</div>
+
+
         <div className={Card_pokemon_css.nameDataOpen}>
           sepcialAttack: {specialAttack}
         </div>

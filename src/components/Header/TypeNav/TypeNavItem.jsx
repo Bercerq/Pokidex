@@ -7,9 +7,9 @@ function TypeNavItem(props) {
 
   return (
     <li className={TypeNav_css.nav_item}>
-      <a href="!#" className={TypeNav_css.icon_button} onClick={()=> setOpen(!open)}>
+      <p className={TypeNav_css.icon_button} onClick={()=> setOpen(!open)}>
         {props.icon}
-      </a>
+      </p>
 
       {open && props.children}
     </li>
