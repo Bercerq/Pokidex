@@ -33,7 +33,6 @@ function OpenedCardPokemon(props) {
         <div className={Card_pokemon_css.nameDataOpen}>hp: {hp}</div>
         <div className={Card_pokemon_css.nameDataOpen}>speed: {speed}</div>
 
-
         <div className={Card_pokemon_css.nameDataOpen}>
           sepcialAttack: {specialAttack}
         </div>
@@ -43,9 +42,7 @@ function OpenedCardPokemon(props) {
       </div>
 
       <NavLink className={Card_pokemon_css.exitButoon} to={"/"}>
-        <div>
-          <span className={Card_pokemon_css.exitButoonText}>Go back</span>
-        </div>
+        <span className={Card_pokemon_css.exitButoonText}>&#10144;</span>
       </NavLink>
     </div>
   );

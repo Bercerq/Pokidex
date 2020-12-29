@@ -3,10 +3,8 @@ import Header from './components/Header/Header'
 import PokemonBody from './components/Pokemon_body/PokemonBody'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom'
-import catchError_css from './catchError.module.css'
+import { BrowserRouter } from 'react-router-dom'
 import Paginationcons from './components/Paginathion/Paginationcons'
-import { Form, reduxForm } from 'redux-form'
 
 function App () {
   const [pokemons, setPokemons] = useState([])
@@ -56,13 +54,15 @@ function App () {
         setPokemons(result.data.pokemons)
         SetTotalCount(result.data.count)
         setLoading(false)
+        setIsErr(false)
       })
       .catch(error => {
         if (error.request) {
           setIsErr(true)
+          setLoading(false)
         }
       })
-  }, [changeLimit, valType, namefil, filterObj, curPages])
+  }, [changeLimit, namefil, filterObj, curPages])
 
   useEffect(() => {
     axios
@@ -72,71 +72,34 @@ function App () {
       })
   }, [])
 
-  const handleFilterPokemons = () => {
-    setLoading(true)
-    axios
-      .post('https://pokemonapishort.herokuapp.com/PokeApi/getPokemons', {
-        filterOptions: [{ nameFilter: namefil }, { typeFilter: valType }],
-        offset: curPages,
-        limit: changeLimit
-      })
-      .then(result => {
-        console.log(result)
-        setPokemons(result.data.pokemons)
-        SetTotalCount(result.data.count)
-        setLoading(false)
-      })
-      .catch(error => {
-        if (error.request) {
-          setIsErr(true)
-        }
-      })
-  }
+  return (
+    <div className='App'>
+      <BrowserRouter>
+        <Header
+          filterObj={filterObj}
+          setFilterObj={setFilterObj}
+          setNamefil={setNamefil}
+          setValType={setValType}
+          valType={valType}
+          type={type}
+        />
 
-  if (!isErr) {
-    return (
-      <div className='App'>
-        <BrowserRouter>
-          <Header
-            filterObj={filterObj}
-            setFilterObj={setFilterObj}
-            setNamefil={setNamefil}
-            setValType={setValType}
-            valType={valType}
-            type={type}
-          />
-
-          <PokemonBody pokemons={pokemons} loading={loading} />
-          <Paginationcons
-            setCurPages={setCurPages}
-            setChangeLimit={setChangeLimit}
-            changeLimit={changeLimit}
-            totalCount={totalCount}
-            setPokemons={setPokemons}
-          />
-        </BrowserRouter>
-      </div>
-    )
-  } else {
-    return (
-      <div>
-          <BrowserRouter>
-            <Route exact path={'/'} />
-
-            <NavLink to={'/'}>
-              <div>
-                <button onSubmit={handleFilterPokemons}>Go back</button>
-              </div>
-            </NavLink>
-          </BrowserRouter>
-          <div className={catchError_css.catchPokemons}>
-            <p className={catchError_css.textCatchPokemons}>
-              This pokemons does not exist!
-            </p>
-          </div>
-      </div>
-    )
-  }
+        <PokemonBody
+          isErr={isErr}
+          setIsErr={setIsErr}
+          pokemons={pokemons}
+          loading={loading}
+        />
+        <Paginationcons
+          setCurPages={setCurPages}
+          setChangeLimit={setChangeLimit}
+          changeLimit={changeLimit}
+          totalCount={totalCount}
+          setPokemons={setPokemons}
+        />
+      </BrowserRouter>
+    </div>
+  )
 }
 
-export default App 
+export default App

@@ -5,16 +5,17 @@
   border-radius: 10px;
   background-color: rgb(61, 61, 61);
   opacity: 7;
-
 }
 
 a {
   font-size: 25px;
 }
 
-.activeClassName {
+.activeClassName a{
   color: white;
+  outline: none;
 }
+
 .pageLinkClassName {
   color: yellow;
   border-radius: 10px;
@@ -32,12 +33,11 @@ a {
 }
 
 .nextClassName {
-    list-style-type: none;
-    color: white;
-    cursor: pointer;
-    width: 20%;
-  }
-  
+  list-style-type: none;
+  color: white;
+  cursor: pointer;
+  width: 20%;
+}
 
 .breakLinkClassName {
   list-style-type: none;
@@ -45,9 +45,9 @@ a {
   cursor: pointer;
 }
 
-
 .break-me {
   list-style-type: none;
   color: white;
   cursor: pointer;
-  padding-right: 3%;}
+  padding-right: 3%;
+}

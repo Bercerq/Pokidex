@@ -9,12 +9,16 @@
   margin: 0.5%;
 }
 
-.buttonFillterSearch{
-  color:rgba(218, 13, 13, 0.849);
+.Logo > img:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
+.buttonFillterSearch {
+  color: rgba(218, 13, 13, 0.849);
   font-size: 20px;
   background: none;
   border: none;
   outline: none;
   cursor: pointer;
 }
-

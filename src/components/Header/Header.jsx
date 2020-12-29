@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header_css from "./Header.module.css";
 import Logos from "../../distm/img/pokeball-alexa-style-blog-pokemon-inspired-charmander-daily-8.png";
 import TypeNav from "./TypeNav/TypeNav";
@@ -8,6 +8,8 @@ import { Field, reduxForm, formValueSelector, Form } from "redux-form";
 import { connect } from "react-redux";
 import { useSelector } from "react-redux";
 import Pokemon_body_css from "../Pokemon_body/Pokemon_body.module.css";
+import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const replacerStats = (e) => e.target.value.replace(/\D/, "");
 
@@ -59,22 +61,23 @@ const stats = [
 ];
 
 let Header = (props) => {
+  const [pokemons, setPokemons] = useState([]);
+
   const valuez = useSelector((state) => state.form?.filter?.values);
   const handleFilterPokemons = () => {
-    if (valuez !== undefined) {
+    let arr = [];
+    if (valuez) {
       for (const [key, value] of Object.entries(valuez)) {
-        if (props.type.includes(key)) {
-          props.setValType([key]);
-        }
-        if (value === false) {
-          props.setValType([]);
+        if (props.type.includes(key) && value) {
+          arr.push(key);
+          props.setValType([...arr]);
         }
       }
       props.setNamefil(valuez?.filterName);
     } else {
       props.setNamefil("");
     }
-    
+
     props.setFilterObj({
       attack: props.attack,
       defense: props.defense,
@@ -86,7 +89,6 @@ let Header = (props) => {
   };
 
   useEffect(() => {
-    console.log(props.filterObj);
     for (let obj in props.filterObj) {
       if (!props.filterObj[obj].from) {
         delete props.filterObj[obj].from;
@@ -98,14 +100,25 @@ let Header = (props) => {
       } else if (props.filterObj[obj].from > props.filterObj[obj].to) {
       }
     }
-    
   }, [props.filterObj]);
+
+  const resetpokemons = () => {
+    axios
+      .post("https://pokemonapishort.herokuapp.com/PokeApi/getPokemons", {
+        filterOptions: [{ nameFilter: "" }, { typeFilter: [""] }],
+      })
+      .then((result) => {
+        setPokemons(result.data.pokemons);
+      });
+  };
 
   return (
     <header className={Header_css.Header}>
-      <div className={Header_css.Logo}>
-        <img src={Logos} alt="Logo" />
-      </div>
+      <NavLink onSubmit={resetpokemons} to={"/"}>
+        <div className={Header_css.Logo}>
+          <img onClick={resetpokemons} src={Logos} alt="Logo" />
+        </div>
+      </NavLink>
       <Field name="filterName" component={renderFieldName} type="text" />
       <button
         onClick={handleFilterPokemons}
@@ -145,10 +158,7 @@ let Header = (props) => {
                 <div className={TypeNav_css.FilterStats}>
                   <div className={TypeNav_css.attackStats}>
                     {stats.map((stats, i) => (
-                      <li
-                        key={i}
-                        className={TypeNav_css.allStatsInput}
-                      >
+                      <li key={i} className={TypeNav_css.allStatsInput}>
                         <label
                           className={TypeNav_css.statsName}
                           htmlFor={stats}

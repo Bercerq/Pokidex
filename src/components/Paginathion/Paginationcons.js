@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Pokemon_body_css from '../Pokemon_body/Pokemon_body.module.css'
 import ReactPaginate from 'react-paginate'
-import '../Pokemon_body/PaginathionStyles.css'
+import './PaginathionStyles.css'
 
 const Paginationcons = ({
   setCurPages,
@@ -45,6 +45,7 @@ const Paginationcons = ({
         containerClassName={'pagination'}
         subContainerClassName={'pages pagination'}
         activeClassName={'activeClassName'}
+        activeLinkClassName={'activeLinkClassName'}
         onPageChange={handlePageClick}
         previousClassName={'previousClassName'}
         breakLinkClassName={'break-me'}
